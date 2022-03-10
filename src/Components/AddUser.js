@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import "./AddUser.css";
 
-const AddUser = () => {
+const AddUser = (props) => {
   const [enteredName, setEnteredName] = useState("");
   const [enteredNumber, setEnteredNumber] = useState("");
 
   const addUserHandler = (event) => {
     event.preventDefault();
-    
+    props.onAddUser(enteredName, enteredNumber);
     console.log(enteredName, enteredNumber);
+    setEnteredName("");
+    setEnteredNumber("");
   };
 
   const nameChangeHandler = (event) => {
@@ -27,6 +29,7 @@ const AddUser = () => {
           <input
             type="text"
             className="Name"
+            value={enteredName}
             onChange={nameChangeHandler}
           ></input>
         </div>
@@ -35,10 +38,11 @@ const AddUser = () => {
           <input
             type="number"
             className="Number"
+            value={enteredNumber}
             onChange={numberChangeHandler}
           ></input>
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" onClick={props.onClick}>Submit</button>
       </form>
     </div>
   );
