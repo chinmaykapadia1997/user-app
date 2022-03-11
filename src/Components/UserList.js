@@ -1,4 +1,5 @@
 import React from "react";
+import { ReactDOM } from "react";
 import "./UserList.css";
 
 const UserList = (props) => {
@@ -8,7 +9,7 @@ const UserList = (props) => {
       <h2>Users List</h2>
       <ul>
         {props.items.map((val) => {
-          <li> {val.Name} </li>;
+          <li key={val.id}> {val.Name} </li>;
         })}
         ;
       </ul>

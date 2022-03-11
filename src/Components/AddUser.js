@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { ReactDOM } from "react";
+import Button from "./Button";
 import "./AddUser.css";
 
 const AddUser = (props) => {
@@ -42,7 +44,8 @@ const AddUser = (props) => {
             onChange={numberChangeHandler}
           ></input>
         </div>
-        <button type="submit" onClick={props.onClick}>Submit</button>
+        <Button type="submit">Add User</Button>
+        {/* <button type="submit" onClick={props.onClick}>Submit</button> */}
       </form>
     </div>
   );

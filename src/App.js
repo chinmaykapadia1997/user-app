@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ReactDOM } from "react";
 import AddUser from "./Components/AddUser";
 import UserList from "./Components/UserList";
 import "./App.css";
@@ -8,7 +9,10 @@ function App() {
 
   const addUserHandler = (username, usernumber) => {
     setUserList((prevUser) => {
-      return [...prevUser, { Name: username, Number: usernumber }];
+      return [
+        ...prevUser,
+        { Name: username, Number: usernumber, id: Math.random().toString() },
+      ];
     });
   };
 
