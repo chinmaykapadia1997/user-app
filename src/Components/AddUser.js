@@ -16,6 +16,7 @@ const AddUser = (props) => {
 
 
   const addUserHandler = (event) => {
+    event.preventDefault();
     //console.log(nameRef.current.value);
     const enterName = nameRef.current.value;
     const enterNumber = numberRef.current.value;
@@ -24,7 +25,6 @@ const AddUser = (props) => {
       setError({title: "Error", message: "please enter valid input"});
       return;
     }
-    event.preventDefault();
     props.onAddUser(enterName, enterNumber);
     //console.log(enteredName, enteredNumber);
     nameRef.current.value='';
@@ -54,9 +54,12 @@ const AddUser = (props) => {
   //   setEnteredNumber(event.target.value);
   // };
 
+  const errorHandler =()=>{
+    setError(null);
+  }
   return (
     <Wrapper> 
-      {error && <ErrorModal title={error.title} message={error.message}></ErrorModal>}
+      {error && <ErrorModal title={error.title} message={error.message} onConfirm={errorHandler}></ErrorModal>}
      
       <div className="card">
         <form onSubmit={addUserHandler}>

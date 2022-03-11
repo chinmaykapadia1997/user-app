@@ -4,7 +4,7 @@ import "./ErrorModal.css";
 import Button from "./Button";
 
 const Backdrop = (props) => {
-  return <div className="backdrop" />;
+  return <div className="backdrop" onClick={props.onConfirm}/>;
 };
 
 const ModalOverlay = (props) => {
@@ -13,9 +13,11 @@ const ModalOverlay = (props) => {
       <header className="header">
         <h2>{props.title}</h2>
       </header>
-      <div className="content">{props.message}</div>
+      <div className="content">
+        <p>{props.message}</p>
+      </div>
       <footer className="actions">
-        <Button>Okay</Button>
+        <Button onClick={props.onConfirm}>Okay</Button>
       </footer>
     </div>
   );
@@ -23,13 +25,12 @@ const ModalOverlay = (props) => {
 const ErrorModal = (props) => {
   return (
     <React.Fragment>
-      <div className="card1"></div>
       {ReactDOM.createPortal(
-        <Backdrop />,
+        <Backdrop onConfirm={props.onConfirm}/>,
         document.getElementById("backdrop-root")
       )}
       {ReactDOM.createPortal(
-        <ModalOverlay />,
+        <ModalOverlay onConfirm={props.onConfirm} title={props.title} message={props.message}/>,
         document.getElementById("modal-root")
       )}
     </React.Fragment>
