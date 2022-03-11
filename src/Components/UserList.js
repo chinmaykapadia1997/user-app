@@ -8,10 +8,10 @@ const UserList = (props) => {
     <div className="card">
       <h2>Users List</h2>
       <ul>
-        {props.items.map((val) => {
-          <li key={val.id}> {val.Name} </li>;
-        })}
-        ;
+        {props.items.map((val) => (
+          <li> {val.Name} {val.Number}</li>
+        ))}
+
       </ul>
     </div>
   );

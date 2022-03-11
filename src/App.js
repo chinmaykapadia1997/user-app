@@ -11,16 +11,16 @@ function App() {
     setUserList((prevUser) => {
       return [
         ...prevUser,
-        { Name: username, Number: usernumber, id: Math.random().toString() },
+        { Name: username, Number: usernumber},
       ];
     });
   };
 
   return (
-    <div className="App">
+    <React.Fragment>
       <AddUser onAddUser={addUserHandler}></AddUser>
       <UserList items={usersList}></UserList>
-    </div>
+    </React.Fragment>
   );
 }
 
