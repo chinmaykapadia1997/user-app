@@ -25,6 +25,11 @@ const AddUser = (props) => {
       setError({title: "Error", message: "please enter valid input"});
       return;
     }
+    console.log(enterNumber.length);
+    if(enterNumber.length < 10){
+      setError({title: "Error", message: "Enter valid number"});
+      return;
+    }
     props.onAddUser(enterName, enterNumber);
     //console.log(enteredName, enteredNumber);
     nameRef.current.value='';
@@ -63,7 +68,7 @@ const AddUser = (props) => {
      
       <div className="card">
         <form onSubmit={addUserHandler}>
-          <div>
+          <div className="input-name">
             <label>Name:-</label>
             <input
               type="text"
@@ -71,7 +76,7 @@ const AddUser = (props) => {
               ref={nameRef}
             ></input>
           </div>
-          <div>
+          <div className="input-number">
             <label>Number:-</label>
             <input
               type="number"

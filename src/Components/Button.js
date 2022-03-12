@@ -1,10 +1,9 @@
-import { isVisible } from "@testing-library/user-event/dist/utils";
 import React from "react";
-import { ReactDOM } from "react";
+import './Button.css';
 
 const Button =(props) =>{
     return (
-        <button className="" type={props.type || "submit"} onClick={props.onClick}>
+        <button className="button-34" type={props.type || "submit"} onClick={props.onClick}>
             {props.children}
         </button>
     );
