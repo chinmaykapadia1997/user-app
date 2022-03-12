@@ -16,10 +16,19 @@ function App() {
     });
   };
 
+  const deleteHandler = userId =>{
+    setUserList((prevUser)=>{
+      const newUser = prevUser.find(data => data.id == userId);
+      console.log(newUser);
+      return newUser; 
+    });
+    console.log(userId);
+  };
+
   return (
     <div className="App">
       <AddUser onAddUser={addUserHandler}></AddUser>
-      <UserList items={usersList}></UserList>
+      <UserList items={usersList} onDeleteUser={deleteHandler}></UserList>
     </div>
   );
 }
